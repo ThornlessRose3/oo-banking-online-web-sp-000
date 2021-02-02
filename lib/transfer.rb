@@ -38,7 +38,7 @@ class Transfer
       refundee = @sender
       @sender = refunder
       @receiver = refundee
-      self.execute_transaction
+      execute_transaction
     else
       return "Transaction rejected. Please check your account balances and that the accounts are active. Only completed transactions can be reversed."
     end
