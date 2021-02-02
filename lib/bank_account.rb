@@ -31,8 +31,9 @@ class BankAccount
       if @balance > 0
         true
       end
+    else
+      false
     end
-    false
   end
   
 end
