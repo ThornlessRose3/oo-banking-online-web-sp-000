@@ -12,10 +12,20 @@ class Transfer
 
   def valid?
     if @sender.valid? && @receiver.valid?
-      TRUE
+      true
     else
-      FALSE
+      false
     end
   end
 
+  def exectute_transaction
+    # are accounts valid?
+    if self.valid?
+      
+    else
+      @status = "rejected"
+    end
+  end
+  
+  
 end
