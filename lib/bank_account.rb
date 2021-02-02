@@ -9,10 +9,6 @@ class BankAccount
     @status = "open"
   end
   
-  def name=(name)
-    @name = name
-  end
-  
   def deposit(amt)
     @previous_balance = @balance
     total = @balance
