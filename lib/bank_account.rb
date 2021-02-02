@@ -15,9 +15,11 @@ class BankAccount
   end
   
   def deposit(amt)
-    balance = @balance
-    balance = balance + amt
     @previous_balance = @balance
+    balance = @balance
+    puts "Balance: #{balance}"
+    balance = balance + amt
+    puts "with add: #{balance}"
     @balacnce = balance
   end
   
