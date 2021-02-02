@@ -38,7 +38,9 @@ class Transfer
       refundee = @sender
       @sender = refunder
       @receiver = refundee
-      execute_transaction
+      @sender.deposit(-@amount)
+      @receiver.deposit(@amount)
+      @status = "reversed"
     else
       return "Transaction rejected. Please check your account balances and that the accounts are active. Only completed transactions can be reversed."
     end
