@@ -18,7 +18,7 @@ class Transfer
     end
   end
 
-  def execute_transaction
+  def self.execute_transaction
     # are accounts valid?
     if self.valid? && @sender.balance > @amount && @status == "pending"
       @sender.deposit(-@amount)
@@ -33,11 +33,14 @@ class Transfer
   
   def reverse_transfer
     if self.valid? && @receiver.balance > @amount && @status == "complete"
-      @receiver.deposit.(-@amount)
-      @sender.deposit.(@amount)
-      return "Refund complete. #{sender} refund of $#{@amount} has been credited to their account."
+      @status = "pending"
+      refunder = @receiver
+      refundee = @sender
+      @sender = refunder
+      @receiver = refundee
+      self.execute_transaction
     else
-      return "Transaction rejected. Only completed transactions can be reversed."
+      return "Transaction rejected. Please check your account balances and that the accounts are active. Only completed transactions can be reversed."
     end
   end
   
