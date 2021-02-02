@@ -21,7 +21,8 @@ class Transfer
   def exectute_transaction
     # are accounts valid?
     if self.valid?
-      
+      @sender.deposit(-@amount)
+      @receiver.depost(@amount)
     else
       @status = "rejected"
     end
