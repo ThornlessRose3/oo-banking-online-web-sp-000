@@ -5,9 +5,17 @@ class Transfer
   
   def initialize(sender, receiver, amount)
     @sender = sender
-    @reciever = receiver
+    @receiver = receiver
     @amount = amount
     @status = "pending"
+  end
+
+  def valid?
+    if @sender.valid? && @receiver.valid?
+      TRUE
+    else
+      FALSE
+    end
   end
 
 end
