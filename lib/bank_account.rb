@@ -20,11 +20,11 @@ class BankAccount
     puts "Balance: #{total}"
     total = (total + amt)
     puts "with add: #{total}"
-    @balacnce = total
+    @balance = total
   end
   
   def display_balance
-    puts "$#{@balance}"
+    return "Your balance is $#{@balance}."
   end
   
   def valid?
