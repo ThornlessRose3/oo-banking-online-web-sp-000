@@ -22,7 +22,7 @@ class Transfer
     # are accounts valid?
     if self.valid? && @sender.balance > @amount
       @sender.deposit(-@amount)
-      @receiver.depost(@amount)
+      @receiver.deposit(@amount)
     else
       @status = "rejected"
     end
