@@ -31,5 +31,15 @@ class Transfer
     end
   end
   
+  def reverse_transfer
+    if self.valid? && @receiver.balance > @amount && @status == "complete"
+      @receiver.deposit.(-@amount)
+      @sender.deposit.(@amount)
+      return "Refund complete. #{sender} refund of $#{@amount} has been credited to their account."
+    else
+      return "Transaction rejected. Only completed transactions can be reversed."
+    end
+  end
+  
   
 end
