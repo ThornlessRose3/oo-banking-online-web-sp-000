@@ -24,7 +24,7 @@ class Transfer
       @sender.deposit(-@amount)
       @receiver.deposit(@amount)
       @status = "complete"
-      return "Transfer complete. #{@sender.name} successfully sent $#{@amount} to #{@receiver}
+      return "Transfer complete. #{@sender.name} successfully sent $#{@amount} to #{@receiver}."
     else
       @status = "rejected"
       return "Transaction rejected. Please check your account balance."
