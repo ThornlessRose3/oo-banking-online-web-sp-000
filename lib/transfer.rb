@@ -20,7 +20,7 @@ class Transfer
 
   def execute_transaction
     # are accounts valid?
-    if self.valid? && @sender.balance > @amount && @statue == "pending"
+    if self.valid? && @sender.balance > @amount && @status == "pending"
       @sender.deposit(-@amount)
       @receiver.deposit(@amount)
       @status = "complete"
